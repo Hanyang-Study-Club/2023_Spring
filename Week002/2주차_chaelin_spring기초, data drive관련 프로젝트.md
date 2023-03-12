@@ -5,8 +5,9 @@ https://www.inflearn.com/course/lecture?courseSlug=%EC%8A%A4%ED%94%84%EB%A7%81-%
 
 data drive test case...
 - FIO: FIO란? FIO는 Flexible I/O Tester의 약자로 읽기, 쓰기, IOPS, Bandwidth등의 결과를 나타내주어 성능을 측정하기 위한 Tool. 이 외에도 MLTT(라이센스 구매 필요), vdbench등등 있음. 이러한 툴들을 사용해 다양한 테스트케이스 워크로드 개발
-- block device command: blkid, lsblk, fdisk, fstrim...
+- block device command: blkid, lsblk, fdisk, fstrim... 
 - abnormal nvme cli command: fwdown, fwcommit, get feature, set feature, flush... nvme spec에 따라 option으로 비정상적인 값을 주었을 때 $? 시 fail되는것을 확인
+- kernal check: dmesg
 - lvm 실습
 <create lvm mirror>
 
@@ -45,7 +46,7 @@ df -h -> mount 확인
 umount /lvm/mirror
 df -h -> umount 확인
 
-2. vgremove
+2. vgremove 
 vgremove mirror
 
 3. pvremove
