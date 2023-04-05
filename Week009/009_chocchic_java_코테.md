@@ -211,4 +211,87 @@ public class Main {
 	}	
 }
 ```  
- 함수 내에 조건문 두개 보기 싫어서 지워버림  
+ 함수 내에 조건문 두개 보기 싫어서 지워버림 근데 곰곰히 생각해봤는데 main의 1,2 판별도 의미 없는 거 같다  
+ 
+## 4월 5일
+### 1. 1장 String(문자열) > 3번 문장 속 단어(indexOf(), substring())
+```java
+import java.util.*;
+class Main {	
+	public String solution(String str){
+		String answer="";
+		int m=Integer.MIN_VALUE;
+		String[] s = str.split(" ");
+		for(String x : s){
+			int len=x.length();
+			if(len>m){
+				m=len;
+				answer=x;
+			}
+		}
+		return answer;
+	}
+
+	public static void main(String[] args){
+		Main T = new Main();
+		Scanner kb = new Scanner(System.in);
+		String str=kb.nextLine();
+		System.out.print(T.solution(str));
+	}
+}
+
+
+import java.util.*;
+class Main {	
+	public String solution(String str){
+		String answer="";
+		int m=Integer.MIN_VALUE, pos;
+		while((pos=str.indexOf(' '))!=-1){
+			String tmp=str.substring(0, pos);
+			int len=tmp.length();
+			if(len>m){
+				m=len;
+				answer=tmp;
+			}
+			str=str.substring(pos+1);
+		}
+		if(str.length()>m) answer=str;
+		return answer;
+	}
+
+	public static void main(String[] args){
+		Main T = new Main();
+		Scanner kb = new Scanner(System.in);
+		String str=kb.nextLine();
+		System.out.print(T.solution(str));
+	}
+}
+```  
+
+### 2. 2장 Array(1, 2차원 배열) > 7번 점수계산
+```java
+import java.util.*;
+class Main {	
+	public int solution(int n, int[] arr){
+		int answer=0, cnt=0;
+		for(int i=0; i<n; i++){
+			if(arr[i]==1){
+				cnt++;
+				answer+=cnt;
+			}
+			else cnt=0;
+		}	
+		return answer;
+	}
+	public static void main(String[] args){
+		Main T = new Main();
+		Scanner kb = new Scanner(System.in);
+		int n=kb.nextInt();
+		int[] arr=new int[n];
+		for(int i=0; i<n; i++){
+			arr[i]=kb.nextInt();
+		}
+		System.out.print(T.solution(n, arr));
+	}
+}
+```  
